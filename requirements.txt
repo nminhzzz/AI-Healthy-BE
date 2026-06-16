@@ -1,0 +1,46 @@
+# HealthShop AI — Backend Dependencies
+# Install: .venv\bin\pip install -r requirements.txt
+
+# ── Web Framework ─────────────────────────────────────────────────────────────
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+
+# ── Database (MySQL) ──────────────────────────────────────────────────────────
+sqlalchemy>=2.0.0
+alembic>=1.13.0
+pymysql>=1.1.0
+cryptography>=42.0.0          # pymysql caching_sha2_password
+
+# ── Validation & Settings ─────────────────────────────────────────────────────
+pydantic>=2.7.0
+pydantic-settings>=2.3.0
+
+# ── Authentication ────────────────────────────────────────────────────────────
+python-jose[cryptography]>=3.3.0   # JWT encode/decode
+passlib[bcrypt]>=1.7.4             # password hashing
+python-multipart>=0.0.9            # form data (login form)
+
+# ── Cache (Redis) ─────────────────────────────────────────────────────────────
+redis>=5.0.0
+
+# ── MongoDB ───────────────────────────────────────────────────────────────────
+motor>=3.4.0                       # async MongoDB driver
+pymongo>=4.7.0
+
+# ── AI ───────────────────────────────────────────────────────────────────────
+openai>=1.30.0
+langchain>=0.2.0
+langchain-openai>=0.1.0
+langchain-community>=0.2.0
+
+# ── Email ─────────────────────────────────────────────────────────────────────
+fastapi-mail>=1.4.0
+
+# ── File Upload ───────────────────────────────────────────────────────────────
+python-slugify>=8.0.0
+Pillow>=10.0.0
+
+# ── Dev / Testing ─────────────────────────────────────────────────────────────
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+httpx>=0.27.0                      # async test client cho FastAPI

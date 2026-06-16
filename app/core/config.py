@@ -96,6 +96,10 @@ class Settings(BaseSettings):
     upload_dir: str = Field(default="uploads")
     max_file_size_mb: int = Field(default=10)
 
+    # ── Cloudinary ────────────────────────────────────────────────────────────
+    cloudinary_cloud_name: str = Field(default="")
+    cloudinary_api_key: str = Field(default="")
+    cloudinary_api_secret: str = Field(default="")
 
 @lru_cache
 def get_settings() -> Settings:

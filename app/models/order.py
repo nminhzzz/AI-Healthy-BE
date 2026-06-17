@@ -31,6 +31,14 @@ class Order(Base, TimestampMixin):
     shipping_fee: Mapped[float] = mapped_column(DECIMAL(12, 2), default=0.0)
     total_price: Mapped[float] = mapped_column(DECIMAL(12, 2), default=0.0)
     
+    receiver_name: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
+    phone: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)
+    province: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
+    district: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
+    ward: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
+    address_detail: Mapped[Optional[str]] = mapped_column(String(500), nullable=True)
+    payment_method: Mapped[str] = mapped_column(String(50), default="COD")
+
     status: Mapped[OrderStatus] = mapped_column(Enum(OrderStatus), default=OrderStatus.PENDING)
     note: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
 

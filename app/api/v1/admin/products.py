@@ -14,10 +14,22 @@ def get_products(
     skip: int = 0, limit: int = 100,
     category_id: Optional[int] = None,
     search: Optional[str] = None,
+    price_min: Optional[float] = None,
+    price_max: Optional[float] = None,
+    sort_by: Optional[str] = None,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
-    return product_repo.search(db, skip=skip, limit=limit, category_id=category_id, search_query=search)
+    return product_repo.search(
+        db, 
+        skip=skip, 
+        limit=limit, 
+        category_id=category_id, 
+        search_query=search,
+        price_min=price_min,
+        price_max=price_max,
+        sort_by=sort_by
+    )
 
 @router.post("/", response_model=ProductResponse)
 def create_product(

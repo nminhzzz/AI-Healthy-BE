@@ -62,3 +62,11 @@ class ProductResponse(ProductBase):
 
 class ProductResponseWithCategory(ProductResponse):
     category: Optional[CategoryResponse] = None
+
+
+class ProductSearchResponse(BaseModel):
+    total: int
+    page: int
+    limit: int
+    items: list[ProductResponseWithCategory]
+

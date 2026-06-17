@@ -38,3 +38,8 @@ class UserResponse(UserBase):
     class Config:
         from_attributes = True
         populate_by_name = True
+
+class PasswordChange(BaseModel):
+    old_password: str
+    new_password: str = Field(..., min_length=6, max_length=128)
+

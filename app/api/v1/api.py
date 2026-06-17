@@ -5,12 +5,16 @@ from app.api.v1.admin import categories as admin_categories
 from app.api.v1.admin import products as admin_products
 from app.api.v1.admin import users as admin_users
 from app.api.v1.admin import orders as admin_orders
+from app.api.v1.admin import coupons as admin_coupons
 from app.api.v1 import categories as public_categories
 from app.api.v1 import products as public_products
 from app.api.v1 import reviews as public_reviews
 from app.api.v1 import cart as public_cart
 from app.api.v1 import orders as public_orders
 from app.api.v1 import payments as public_payments
+from app.api.v1 import wishlist as public_wishlist
+from app.api.v1 import shipping as public_shipping
+from app.api.v1 import users as public_users
 from app.api.v1.endpoints import upload
 
 api_router = APIRouter()
@@ -21,6 +25,8 @@ api_router.include_router(admin_categories.router, prefix="/admin/categories", t
 api_router.include_router(admin_products.router, prefix="/admin/products", tags=["Admin - Products"])
 api_router.include_router(admin_users.router, prefix="/admin/users", tags=["Admin - Users"])
 api_router.include_router(admin_orders.router, prefix="/admin/orders", tags=["Admin - Orders"])
+api_router.include_router(admin_coupons.router, prefix="/admin/coupons", tags=["Admin - Coupons"])
+
 
 
 # Public routes
@@ -30,6 +36,9 @@ api_router.include_router(public_reviews.router, prefix="/reviews", tags=["Publi
 api_router.include_router(public_cart.router, prefix="/cart", tags=["Public - Cart"])
 api_router.include_router(public_orders.router, prefix="/orders", tags=["Public - Orders"])
 api_router.include_router(public_payments.router, prefix="/payments", tags=["Public - Payments"])
+api_router.include_router(public_wishlist.router, prefix="/wishlist", tags=["Public - Wishlist"])
+api_router.include_router(public_shipping.router, prefix="/shipping", tags=["Public - Shipping"])
+api_router.include_router(public_users.router, prefix="/users", tags=["Public - Users"])
 
 # Upload routes
 api_router.include_router(upload.router, prefix="/upload", tags=["Upload"])
